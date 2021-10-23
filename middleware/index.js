@@ -23,12 +23,12 @@ middlewareObj.isLoggedInAsEmployee = function (req, res, next) {
 };
 
 //middleware che verifica se un utente è loggato
-middlewareObj.isLoggedIn = function (req, res, next) {
+/* middlewareObj.isLoggedIn = function (req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
     res.status(401);
     res.redirect('/login');
-};
+}; */
 
 module.exports = middlewareObj;

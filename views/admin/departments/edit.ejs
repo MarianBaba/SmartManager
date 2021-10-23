@@ -1,0 +1,53 @@
+
+<%- include('../../partials/headerAdmin.ejs') %> 
+<%- include("../../partials/adminSidebar.ejs") %>
+<div class="wrapperHomeAdmin">
+    <header class="headerHomeAdmin">
+      <a href="#" class="nameAdmin">
+        Utente: <%= currentUser.username %>
+      </a>
+    </header>
+
+    <div class="wrapperDepAdmin">
+    <section>
+        <header class="updDepAdmin">
+          <h1>Modifica Dipartimento</h1>
+        </header>
+
+
+        <form
+        method="POST" 
+          action="/homeadmin/departments/<%=department._id%>?_method=PUT"> 
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputName4">Nome</label>
+              <input
+                class="form-control"
+                type="text"
+                id="inputName4"
+                name="department[departmentName]"
+                value="<%= department.departmentName %>"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputImage4">Url Immagine</label>
+              <input
+                class="form-control"
+                type="text"
+                id="inputImage4"
+                name="department[departmentImage]"
+                value="<%= department.departmentImage %>"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="submitBtn">Modifica</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>

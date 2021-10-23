@@ -1,0 +1,51 @@
+<div class="sidebar">
+    <div class="logo_content">
+        <div class="logo">
+            <i class='bx bx-briefcase'></i>
+            <div class="logo_name">Smart Manager</div>
+        </div>
+        <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav_list">
+        <li>
+            <a href="/homeemployee">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="links_name">Homepage</span>
+            </a>
+            <span class="tooltip">Homepage</span>
+        </li>
+        <li>
+            <a href="/homeemployee/departments/<%=currentUser.department.id%>">
+                <i class='bx bx-sitemap'></i>
+                <span class="links_name">Dipartimenti</span>
+            </a>
+            <span class="tooltip">Dipartimenti</span>
+        </li>
+        
+        <li>
+            <a href="/homeemployee/projects">
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span class="links_name">Progetti</span>
+            </a>
+            <span class="tooltip">Progetti</span>
+        </li>
+        <li>
+            <a href="/logout">
+                <i class='bx bx-log-out' ></i>
+                <span class="links_name">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
+        </li>
+    </ul>
+</div>
+
+<script>
+    const btn = document.querySelector("#btn");
+    const sidebar = document.querySelector(".sidebar");
+    
+
+    btn.onclick = function() {
+        sidebar.classList.toggle("active");
+    }
+
+</script>

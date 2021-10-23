@@ -1,0 +1,808 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* STILE DEL MENU LATERALE */
+.nav_list {
+    margin-left: -32px;
+}
+.sidebar {
+    position:fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    height: 100%;
+    width: 78px;
+    background: #11101d;
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+.sidebar.active {
+    width: 290px;
+}
+.sidebar .logo_content .logo {
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.sidebar.active .logo_content .logo {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.logo_content .logo i{
+    font-size: 28px;
+    margin-right: 10px;
+}
+.logo_content .logo .logo_name {
+    font-size: 23px;
+    font-weight: 600;
+}
+.sidebar #btn {
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+.sidebar.active #btn {
+    left: 90%;
+}
+.sidebar ul {
+    margin-top: 20px;
+}
+.sidebar ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 0px;
+    margin-top: 20px;
+    list-style: none;
+    line-height: 50px;
+}
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 122px;
+    top: 50%;
+    transform: translate(-30%, -50%);
+    border-radius: 6px;
+    height: 35px;
+    width: 122px;
+    background: #fff;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 0 0px 10px black;
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+}
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+.sidebar ul li:hover .tooltip {
+    transition: all 0.5s ease;
+    opacity: 1;
+    top: 50%;
+}
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    white-space: nowrap;
+    
+}
+.sidebar ul li a:hover {
+    color: #11101d;
+    background: #fff;
+}
+.sidebar ul li a i {
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar .links_name {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.sidebar.active .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HOMEPAGE HOMEPAGE HOMEPAGE HOMEPAGE */
+
+/* STILE DELLA HOMEPAGE */
+.wrapperHomeAdmin {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.headerHomeAdmin {
+    padding-bottom: 20px;
+    border-bottom: solid 5px #11101d;
+    font-size: 20px;
+}
+.nameAdmin {
+    text-decoration: none;
+}
+.bannerHomeAdmin {
+    display: flex;
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 90px;
+    border-bottom: solid 1px rgb(201, 201, 201);
+    margin-bottom: 20px;
+}
+.contentHomeAdmin {
+    width: 60%;
+}
+.contentHomeAdmin h1 {
+    font-size: 70px;
+}
+.contentHomeAdmin h2 {
+    font-size: 20px;
+}
+.spanHomeAdmin {
+    width: 40%;
+}
+.firstImgHomeAdmin {
+    float:right;
+    border-radius: 10px;
+    height: 350px; 
+    width: 600px;
+}
+.articlesContainerHomeAdmin {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row-gap: 100px;
+    padding: 50px;
+}
+.depArticleHomeAdmin {
+    margin-top: 15px;
+    width: 100%;
+}
+.depArticleHomeAdmin h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.depImgHomeAdmin {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+.depSectionHomeAdmin {
+    padding:50px;
+}
+.depSectionHomeAdmin h2 {
+    font-size: 50px;
+}
+.depLinkHomeAdmin button {
+    background-color: #11101d;
+    width: 90%;
+    color: white;
+    border-radius: 5px;
+    border:none;
+    padding: 10px;
+    font-weight: 500;
+}
+.depLinkHomeAdmin button:hover {
+    background-color: #29282c;
+}
+@media only screen and (max-width: 600px) {
+    .wrapperHomeAdmin {
+        margin-left: 100px;
+        margin-right: 50px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .headerHomeAdmin {
+        padding-bottom: 15px;
+        border-bottom: solid 5px #11101d;
+        font-size: 20px;
+    }
+    .bannerHomeAdmin {
+        display: block;
+        margin-top: 0px;
+        padding-left: 20px;
+        padding-right: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        border-bottom: solid 1px rgb(201, 201, 201);
+        margin-bottom: 20px;
+    }
+    .contentHomeAdmin h1 {
+        font-size: 50px;
+    }
+    .firstImgHomeAdmin {
+        border-radius: 10px;
+        height: 0px; 
+        width: 300px;
+    }
+    .articlesContainerHomeAdmin {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        padding: 20px;
+    }
+    .depArticleHomeAdmin {
+        margin-top: 25px;
+        width: 100%;
+    }
+    .depSectionHomeAdmin {
+        padding:30px;
+    }
+    .depSectionHomeAdmin h2 {
+        font-size: 35px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .firstImgHomeAdmin {
+        border-radius: 10px;
+        height: 0px; 
+        width: 300px;
+    }
+    .articlesContainerHomeAdmin {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        padding: 50px;
+    }
+    .depSectionHomeAdmin {
+        padding:30px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .firstImgHomeAdmin {
+        border-radius: 10px;
+        height: 0px; 
+        width: 300px;
+    }
+    .articlesContainerHomeAdmin {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        padding: 50px;
+    }
+    .depSectionHomeAdmin {
+        padding:30px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .firstImgHomeAdmin {
+        border-radius: 10px;
+        height: 0px; 
+        width: 300px;
+    }
+    .articlesContainerHomeAdmin {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        padding: 50px;
+    }
+    .depSectionHomeAdmin {
+        padding:30px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .firstImgHomeAdmin {
+        border-radius: 10px;
+        height: 0px; 
+        width: 300px;
+    }
+    .articlesContainerHomeAdmin {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-row-gap: 50px;
+        padding: 50px;
+    }
+    .depSectionHomeAdmin {
+        padding:30px;
+    }
+}
+@media only screen and (min-width: 1420px) {
+    .firstImgHomeAdmin {
+        border-radius: 10px;
+        height: 350px; 
+        width: 600px;
+    }
+    .articlesContainerHomeAdmin {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-row-gap: 50px;
+        padding: 50px;
+    }
+    .depSectionHomeAdmin {
+        padding:30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DIPARTIMENTI DIPARTIMENTI DIPARTIMENTI DIPARTIMENTI */
+
+
+/* STILE SEZIONE INDEX DIPARTIMENTI */
+.wrapperDepAdmin {
+    padding: 50px;
+}
+.headerContainerDepAdmin {
+    display: flex;
+    margin-bottom: 50px;
+}
+.headerDepAdmin {
+    float: left;
+    width: 70%;
+}
+.headerDepAdmin h1 {
+    font-size: 50px;
+}
+.newDepAdmin {
+    float: right;
+    width: 30%;
+    text-align: center;
+}
+.newDepAdmin button {
+    background-color: #11101d;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.newDepAdmin button:hover {
+    background-color: #29282c;
+}
+.posts {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row-gap: 100px;
+    grid-column-gap: 50px;
+}
+.articleDepAdmin {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    /* border-bottom: solid 1px black; */
+}
+.articleDepAdmin img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.articleDepAdmin h3 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 35px;
+}
+.articleDepAdmin button {
+    background-color: #11101d;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    border:none;
+    padding: 10px;
+    font-weight: 500;
+}
+.articleDepAdmin button:hover {
+    background-color: #29282c;
+}
+@media only screen and (max-width: 600px) {
+    .wrapperDepAdmin {
+        padding: 25px;
+    }
+    .headerContainerDepAdmin {
+        display: inline-block;
+        margin-bottom: 50px;
+    }
+    .headerDepAdmin {
+        width: 100%;
+    }
+    .headerDepAdmin h1 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .newDepAdmin {
+        width: 100%;
+        text-align: center;
+    }
+    .newDepAdmin button {
+        background-color: #11101d;
+        color: white;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+    .newDepAdmin button:hover {
+        background-color: #29282c;
+    }
+    .posts {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        grid-column-gap: 0px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .wrapperDepAdmin {
+        padding: 25px;
+    }
+    .headerContainerDepAdmin {
+        display: inline-block;
+        margin-bottom: 50px;
+    }
+    .headerDepAdmin {
+        width: 100%;
+    }
+    .headerDepAdmin h1 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .newDepAdmin {
+        width: 100%;
+        text-align: center;
+    }
+    .newDepAdmin button {
+        background-color: #11101d;
+        color: white;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+    .posts {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        grid-column-gap: 0px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .wrapperDepAdmin {
+        padding: 25px;
+    }
+    .headerContainerDepAdmin {
+        display: inline-block;
+        margin-bottom: 50px;
+    }
+    .headerDepAdmin {
+        width: 100%;
+    }
+    .headerDepAdmin h1 {
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+    .newDepAdmin {
+        width: 100%;
+        text-align: center;
+    }
+    .newDepAdmin button {
+        background-color: #11101d;
+        color: white;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+    .posts {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 50px;
+        grid-column-gap: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* STILE SEZIONE SHOW DIPARTIMENTI */
+.depShowImgAdmin img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.depBtnContainerAdmin {
+    display: flex;
+    width: 100%;
+}
+.depBtnContainerAdmin a {
+    width: 100%;
+    margin-right: 2px;
+}
+.depBtnContainerAdmin button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #11101d;
+    color: white;
+    font-weight: 500;
+}
+.depBtnContainerAdmin button:hover {
+    background-color: #29282c;
+}
+.deleteBtn {
+    border: none;
+    border-radius: 5px;
+    margin-left: 2px;
+}
+.tableAdmin {
+    background-color: #11101d;
+    color: white;
+    width: 100%;
+    border-radius: 0px;
+    padding: 10px;
+}
+.tableAdmin th {
+    padding: 20px 30px;
+    text-align: center;
+    border-bottom: solid 1px white;
+}
+.tableAdmin tr:hover {
+    background-color: #29282c;
+}
+.tableAdmin td {
+    padding: 20px 30px;
+    text-align: center;
+}
+.tableAdmin td a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.tableAdmin td a:hover {
+    text-decoration: underline;
+}
+.tableContainer {
+    margin-top: 40px;
+}
+.tableTitle {
+    margin-top: 70px;
+    font-size: 40px;
+    border-bottom: solid 1px #11101d;
+}
+@media only screen and (max-width: 600px) {
+    .tableContainer {
+        margin-top: 40px;
+        overflow-x: auto;
+    }
+    .tableAdmin {
+        border-collapse: collapse;
+        background-color: #11101d;
+        color: white;
+        width: 100%;
+        border-radius: 0px;
+    }
+    .tableTitle {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .tableContainer {
+        margin-top: 40px;
+        overflow-x: auto;
+    }
+    .tableAdmin {
+        border-collapse: collapse;
+        background-color: #11101d;
+        color: white;
+        width: 100%;
+        border-radius: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODIFICA DIPARTIMENTO ADMIN */
+.updDepAdmin {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.updDepAdmin h1 {
+    font-size: 60px;
+}
+.form-row label {
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    font-weight: 500;
+}
+.submitBtn {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #11101d;
+    border: none;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.submitBtn:hover {
+    background-color: #29282c;
+}
+
+@media only screen and (max-width: 992px) {
+    .updDepAdmin h1 {
+        font-size: 40px;
+    }
+}
+
+
+
+/* NUOVO DIPENDENTE ADMIN */
+.sectionTitle {
+    font-size: 30px;
+    margin-top: 30px;
+    border-bottom: solid 1px black;
+}
+/* MOSTRA DIPENDENTE ADMIN */
+.empTitleAdmin {
+    font-size: 35px;
+    margin-top: 30px;
+    border-bottom: solid 1px black;
+}
+.empInfo strong {
+    font-size: 20px;
+    margin-right: 5px;
+}
+.empInfo p {
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+/* SHOW PROGETTO */
+.headerProjectAdmin h1 {
+    font-size: 60px;
+}
+.projBtnContainerAdmin {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+}
+.projBtnContainerAdmin a {
+    width: 100%;
+    margin-right: 2px;
+}
+.projBtnContainerAdmin button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #11101d;
+    color: white;
+    font-weight: 500;
+}
+.projBtnContainerAdmin button:hover {
+    background-color: #29282c;
+}
+@media only screen and (max-width: 992px) {
+    .headerProjectAdmin h1 {
+        font-size: 40px;
+    }
+    .empTitleAdmin {
+        font-size: 25px;
+    }
+    .empInfo strong {
+        font-size: 15px;
+    }
+    .empInfo p {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* STILE DELLE PAGINE DEL DIPENDENTE (è inutile ripetere righe di stile, e alcune possono essere utilizzate di nuovo) */
+.empHomeImg img {
+    border-radius: 10px;
+}

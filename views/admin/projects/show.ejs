@@ -1,0 +1,63 @@
+
+<%- include('../../partials/headerAdmin.ejs') %> 
+<%- include("../../partials/adminSidebar.ejs") %>
+<div class="wrapperHomeAdmin">
+    <header class="headerHomeAdmin">
+        <a href="#" class="nameAdmin">
+            Utente: <%= currentUser.username %>
+          </a>
+          
+    </header>
+    <div class="wrapperDepAdmin">
+    <section>
+        <header class="headerProjectAdmin">
+            <h1><%= project.name %></h1>
+        </header>
+        <div class="projBtnContainerAdmin">
+                    <a href="/homeadmin/projects/<%=project._id%>/edit">
+                        <button> 
+                            Modifica
+                        </button>
+                    </a>
+                    <form action="/homeadmin/projects/<%=project._id%>?_method=DELETE" method="POST" style="width: 100%;">
+                        <button class="deleteBtn">Elimina</button>
+                    </form>
+                
+        </div>
+        <div class="empInfo">
+            <h5 class="empTitleAdmin">Dettagli progetto</h5>
+            <p>
+                <strong>Data di inizio:</strong> <%= project.start %> |
+                <strong>Scadenza:</strong> <%= project.end %> <br>
+                <strong>Status:</strong> <%= project.state %> <br>
+                <strong>Dipartimento:</strong> <%= project.department %> <br>
+            </p>
+        </div>
+        <h2 class="tableTitle">Team Responsabile</h3>
+        <div class="tableContainer">
+            <table class="tableAdmin">
+                <thead>
+                    <tr>
+                        <th>ID Dipendente</th>
+                        <th>Nome Completo</th>
+                        <th>Posizione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% employees.forEach(function(emp){ %>
+                    <% if(emp.company === currentUser.companyName && emp.department === project.department){ %>
+                        <tr>
+                            <td><a href="/homeadmin/employees/<%=emp._id%>"><%= emp.employeeId %></a></td>
+                            <td><%= emp.firstName %> <%= emp.lastName %></td>
+                            <td><%= emp.designation %></td>
+                        </tr>
+                    <% } %>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+    </div>
+</body>
+</html>

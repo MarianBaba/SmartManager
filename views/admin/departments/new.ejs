@@ -1,0 +1,36 @@
+
+<%- include('../../partials/headerAdmin.ejs') %> 
+<%- include("../../partials/adminSidebar.ejs") %>
+<div class="wrapperHomeAdmin">
+    <header class="headerHomeAdmin">
+        <a href="#" class="nameAdmin">
+          Utente: <%= currentUser.username %>
+        </a>
+      </header>
+
+      <div class="wrapperDepAdmin">
+      <section>
+          <header>
+              <h1>Creazione Dipartimento</h1>
+          </header>
+
+          <form action="/homeadmin/departments" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                <label for="inputName4">Nome</label>
+                <input class="form-control" type="text" id="inputName4" name="departmentName" />
+            </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                <label for="inputImage4">Url Immagine</label>
+                <input class="form-control" type="text" id="inputImage4" name="departmentImage" />
+            </div>
+            </div>
+            <button type="submit" class="submitBtn">Crea</button>
+          </form>
+      </section>
+    </div>
+</div>
+</body>
+</html>

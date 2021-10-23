@@ -1,0 +1,110 @@
+<div class="sidebar">
+    <div class="logo_content">
+        <div class="logo">
+            <i class='bx bx-briefcase'></i>
+            <div class="logo_name">Smart Manager</div>
+        </div>
+        <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav_list">
+        <li>
+            <a href="/homeadmin">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="links_name">Homepage</span>
+            </a>
+            <span class="tooltip">Homepage</span>
+        </li>
+        <li>
+            <a href="/homeadmin/departments">
+                <i class='bx bx-sitemap'></i>
+                <span class="links_name">Dipartimenti</span>
+            </a>
+            <span class="tooltip">Dipartimenti</span>
+        </li>
+        <li>
+            <a href="/homeadmin/employees">
+                <i class='bx bx-user' ></i>
+                <span class="links_name">Dipendenti</span>
+            </a>
+            <span class="tooltip">Dipendenti</span>
+        </li>
+        <li>
+            <a href="/homeadmin/projects">
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span class="links_name">Progetti</span>
+            </a>
+            <span class="tooltip">Progetti</span>
+        </li>
+        <li>
+            <a href="/logout">
+                <i class='bx bx-log-out' ></i>
+                <span class="links_name">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- <div id="sidebar" style="background-color: rgb(30, 30, 70);">
+    <div class="inner">
+    <nav id="menu">
+        <header style="font-size: 20px;">
+            <h2 style="color: white;">Menu</h2>
+        </header>
+        <ul style="color: white;">
+            <li>
+                <a href="/homeadmin">Homepage</a>
+            </li>
+            <li>
+                <span class="opener">
+                    Dipartimenti&emsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </span>
+                <ul>
+                    <li><a href="/homeadmin/departments/new">Aggiungi nuovo</a></li>
+                    <li><a href="/homeadmin/departments">Vedi tutti</a></li>
+                </ul>
+            </li>
+            <li>
+                <span class="opener">
+                    Dipendenti&emsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </span>
+                <ul>
+                    <li><a href="/homeadmin/employees/new">Aggiungi Nuovo</a></li>
+                    <li><a href="/homeadmin/employees">Vedi Tutti</a></li>
+                </ul>
+            </li>
+            <li>
+                <span class="opener"> 
+                    Progetti&emsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                      </svg>
+                </span>
+                <ul>
+                    <li><a href="/homeadmin/projects/new">Aggiungi Nuovo</a></li>
+                    <li><a href="/homeadmin/projects">Vedi Tutti</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    </div>
+</div> -->
+
+<script>
+    const btn = document.querySelector("#btn");
+    const sidebar = document.querySelector(".sidebar");
+    
+
+    btn.onclick = function() {
+        sidebar.classList.toggle("active");
+    }
+
+</script>

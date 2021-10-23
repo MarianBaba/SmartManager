@@ -1,0 +1,55 @@
+
+<%- include('../../partials/headerAdmin.ejs') %> 
+<%- include("../../partials/adminSidebar.ejs") %>
+<div class="wrapperHomeAdmin">
+    <header class="headerHomeAdmin">
+        <a href="#" class="nameAdmin">
+            Utente: <%= currentUser.username %>
+          </a>
+          
+    </header>
+
+    <div class="wrapperDepAdmin">
+    <section>
+        <div  class="headerContainerDepAdmin">
+        <header class="headerDepAdmin">
+            <h1>Lista Dipendenti</h1>
+        </header>
+        <a href="/homeadmin/employees/new" class="newDepAdmin">
+            <button>
+              Aggiungi nuovo dipendente
+            </button>
+          </a>
+    </div>
+
+        <div class="tableContainer">
+            <table class="tableAdmin">
+                <thead>
+                    <tr>
+                        <th>ID Dipendente</th>
+                        <th>Nome Completo</th>
+                        <th>Dipartimento</th>
+                        <th>Posizione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% employees.forEach(function(emp){ %> <% if(emp.company === currentUser.companyName){ %>
+                        <tr>
+                            <td>
+                                <a href="/homeadmin/employees/<%=emp._id%>">
+                                    <%= emp.employeeId %>
+                                </a>
+                            </td>
+                            <td><%= emp.firstName %> <%= emp.lastName %> </td>
+                            <td><%= emp.department %></td>
+                            <td><%= emp.designation %></td>
+                        </tr>
+                   <% } %> <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    </div>
+    </div>
+</body>
+</html>

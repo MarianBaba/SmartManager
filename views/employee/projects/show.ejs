@@ -1,0 +1,57 @@
+<%- include('../../partials/headerAdmin.ejs') %> 
+<%- include("../../partials/employeeSidebar") %>
+<div class="wrapperHomeAdmin">
+    <header class="headerHomeAdmin">
+        <a href="#" class="nameAdmin">
+            Utente:</strong> <%= employee.firstName %> <%= employee.lastName %> - <%= currentUser.userRole %>
+        </a>
+    </header>
+    <div class="wrapperDepAdmin">
+    <section>
+        <header class="headerProjectAdmin">
+            <h1><%= project.name %></h1>
+        </header>
+        <div class="empInfo">
+            <h5 class="empTitleAdmin">Informazioni Progetto</h5>
+            <p>
+                <strong>Data Inizio:</strong> <%= project.start %> |
+                <strong>Data Fine:</strong> <%= project.end %> <br />
+                <strong>Status:</strong> <%= project.state %> <br />
+                <strong>Azienda:</strong> <%= project.company %> <br />
+                <strong>Dipartimento:</strong> <%= project.department %>
+            </p>
+        </div>
+        <h2 class="tableTitle">Team Responsabile</h2>
+        <div class="tableContainer">
+            <table class="tableAdmin">
+                <thead>
+                    <tr>
+                        <th>ID Dipendente</th>
+                        <th>Nome Completo</th>
+                        <th>Posizione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% employees.forEach(function(emp){ %>
+                    <% if(emp.company === currentUser.companyName && emp.deoartment === project.department){ %>
+                    <tr>
+                        <td><%= emp.employeeId %></td>
+                        <td>
+                            <% if(emp.employeeId === currentUser.username){ %>
+                                <a href="#">Tu</a>
+                            <% } else { %>
+                                <%= emp.firstName %> <%= emp.lastName %>
+                            <% } %>
+                        </td>
+                        <td><%= emp.designation %></td>
+                    </tr>
+                    <% } %>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<%- include('../partials/headerAdmin.ejs') %> 
+
+<%- include("../partials/adminSidebar.ejs") %>
+
+<div class="wrapperHomeAdmin">
+  <!-- <div> -->
+    <div class="inner">
+      <header class="headerHomeAdmin">
+        <a href="#" class="nameAdmin">
+          Benvenuto <%= currentUser.username %> - <%= currentUser.userRole %>
+        </a> 
+      </header>
+      <section class="bannerHomeAdmin">
+        <div class="contentHomeAdmin">
+          <header>
+            <h1><%=currentUser.companyName%></h1>
+            <h2><%=currentUser.companyEmail%></h2>
+            <h2><%=currentUser.companyAddress%></h2>
+          </header>
+        </div>
+        <span class="spanHomeAdmin">
+          <img src="https://wallpapercave.com/wp/wp2019265.jpg" alt="" class="firstImgHomeAdmin" />
+        </span>
+      </section>
+      <header class="depSectionHomeAdmin">
+        <h2>Dipartimenti</h2>
+      </header>
+      <div class="articlesContainerHomeAdmin">
+      <% departments.forEach(function(dept){ %>
+      <% if(dept.createdBy.username === currentUser.username){ %>
+        <article class="depArticleHomeAdmin">
+          <a href="/homeadmin/departments/<%=dept._id%>">
+            <img src="<%=dept.departmentImage%>" alt="" class="depImgHomeAdmin" />
+          </a>
+          <h3><%=dept.departmentName%></h3>
+              <a href="/homeadmin/departments/<%=dept._id%>" class="depLinkHomeAdmin">
+                <button>
+                  Dettagli
+                </button>
+              </a>
+        </article>
+      <% } %>
+      <% }) %>
+    </div>
+    </div><!-- 
+  </div> -->
+    </div>
+</body>
+</html>

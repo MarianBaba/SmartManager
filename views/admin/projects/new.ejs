@@ -1,66 +1,80 @@
-
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/adminSidebar.ejs") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-            Utente: <%= currentUser.username %>
-          </a>
-          
-    </header>
 
-    <div class="wrapperDepAdmin">
-
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Utente: <%= currentUser.username %>
+    </a>      
+  </header>
+  <div class="inner-wrapper">
     <section>
-        <header>
-            <h1>Creazione Progetto</h1>
-        </header>
-
-
-        <form action="/homeadmin/projects" method="POST">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                <label for="inputName4">Nome</label>
-                <input class="form-control" type="text" id="inputName4" name="project[name]" />
-            </div>
-            
-            <div class="form-group col-md-12">
-                <label for="inputStart">Data di Inizio</label>
-                <input class="form-control" type="date" id="inputStart" name="project[start]" />
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputEnd">Data di Fine</label>
-                <input class="form-control" type="date" id="inputEnd" name="project[end]" />
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputDept">Dipartimento</label>
-                <select class="form-control" id="inputDept" name="project[department]">
-                    <option selected>- Scegli -</option>
-                    <% departments.forEach(function(dept){ %> 
-                    <% if(dept.createdBy.username === currentUser.username){ %>
-                    <option><%= dept.departmentName %></option>
-                    <% } %>
-                    <% }) %>
-                </select>
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputCompany">Azienda</label>
-                <input class="form-control" type="text" id="inputCompany" name="project[company]" value="<%=currentUser.companyName%>" />
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputState">Status</label>
-                <select class="form-control" id="inputState" name="project[state]">
-                    <option selected>- Scegli -</option>
-                    <option>Non ancora iniziato</option>
-                    <option>In Progresso</option>
-                    <option>Completato</option>
-                </select>
-            </div>
+      <header>
+        <h1>
+          Creazione Progetto
+        </h1>
+      </header>
+      <form 
+        action="/homeadmin/projects" 
+        method="POST"
+      >
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="input-name-new-proj">
+              Nome
+            </label>
+            <input class="form-control" type="text" id="input-name-new-proj" name="project[name]" />
+          </div>  
+          <div class="form-group col-md-12">
+            <label for="input-start-new-proj">
+              Data di Inizio
+            </label>
+            <input class="form-control" type="date" id="input-start-new-proj" name="project[start]" />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="input-end-new-proj">
+              Data di Fine
+            </label>
+            <input class="form-control" type="date" id="input-end-new-proj" name="project[end]" />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="input-dept-new-proj">
+              Dipartimento
+            </label>
+            <select class="form-control" id="input-dept-new-proj" name="project[department]">
+              <option selected>- Scegli -</option>
+              <% departments.forEach(function(dept){ %> 
+              <% if(dept.createdBy.username === currentUser.username){ %>
+              <option><%= dept.departmentName %></option>
+              <% } %>
+              <% }) %>
+            </select>
+          </div>
+          <div class="form-group col-md-12">
+            <label for="input-company-new-proj">
+              Azienda
+            </label>
+            <input class="form-control" type="text" id="input-company-new-proj" name="project[company]" value="<%=currentUser.companyName%>" />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="input-state-new-proj">
+              Status
+            </label>
+            <select class="form-control" id="input-state-new-proj" name="project[state]">
+              <option selected>- Scegli -</option>
+              <option>Non ancora iniziato</option>
+              <option>In Progresso</option>
+              <option>Completato</option>
+            </select>
+          </div>
         </div>
-            <button type="submit" class="submitBtn">Crea</button>
-        </form>
+        <button type="submit" class="submit-button">
+          Crea
+        </button>
+      </form>
     </section>
+  </div>
 </div>
-    </div>
 </body>
+
 </html>

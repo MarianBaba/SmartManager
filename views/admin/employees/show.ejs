@@ -1,65 +1,66 @@
 
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/adminSidebar.ejs") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-            Utente: <%= currentUser.username %>
-          </a>
-          
-    </header>
-    <div class="wrapperDepAdmin">
-    <section>
-        <header class="headerDepAdmin">
-            <h1>Informazioni Dipendente</h1>
-        </header>
 
-        
-        <div>
-            <span class="depShowImgAdmin">
-            <img src="<%=emp.photo%>" alt="" />
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Utente: <%= currentUser.username %>
+    </a>      
+  </header>
+  <div class="inner-wrapper">
+    <section>
+      <header class="inner-header-container-title">
+        <h1>
+          Informazioni Dipendente
+        </h1>
+      </header>        
+      <div>
+        <span class="show-page-image">
+          <img src="<%=emp.photo%>" alt="" />
         </span>
-            <div class="depBtnContainerAdmin">
-                <a href="/homeadmin/employees/<%=emp._id%>/edit">
-                    <button>
-                        Modifica
-                    </button>
-                </a>
-                <form action="/homeadmin/employees/<%=emp._id%>?_method=DELETE" method="POST" style="width: 100%;">
-                    <button class="deleteBtn">
-                        Elimina
-                    </button>
-                </form>
-    </div>
-            <div class="empInfo">
-                <h5 class="empTitleAdmin">Informazioni personali</h5>
-                
-                <p><strong>Nome:</strong> <%= emp.firstName %> | <strong>Cognome:</strong> <%= emp.lastName %> <br />
-                <strong>Data di Nascita:</strong> <%= emp.dateOfBirth %> <br />
-                <strong>Sesso:</strong> <%= emp.gender %> <br />
-                </p>
-            </div>
-            <div class="empInfo">
-                <h5 class="empTitleAdmin">Contatti</h5>
-                
-                <p>
-                    <strong>Cellulare:</strong> <%= emp.mobile %> <br />
-                    <strong>Email:</strong> <%= emp.email %> <br />
-                </p>
-            </div>
-            <div class="empInfo">
-                <h5 class="empTitleAdmin">Status Lavorativo</h5>
-                
-                <p>
-                    <strong>ID Dipendente:</strong> <%= emp.employeeId %> <br />
-                    <strong>Posizione</strong> <%= emp.designation %> <br />
-                    <strong>Data di Assunzione</strong> <%= emp.joiningDate %> <br />
-                    <strong>Dipartimento:</strong> <%= emp.department %> <br />
-                </p>
-            </div>
+        <div class="show-page-update-button">
+          <form 
+            action="/homeadmin/employees/<%=emp._id%>?_method=DELETE" 
+            method="POST" 
+            style="width: 100%;"
+          >
+            <button class="delete-button">
+              Elimina
+            </button>
+          </form>
         </div>
+        <div class="info-container">
+          <h5 class="info-title">
+            Informazioni personali
+          </h5>      
+          <p><strong>Nome:</strong> <%= emp.firstName %> | <strong>Cognome:</strong> <%= emp.lastName %> <br />
+          <strong>Data di Nascita:</strong> <%= emp.dateOfBirth %> <br />
+          <strong>Sesso:</strong> <%= emp.gender %> <br />
+          </p>
+        </div>
+        <div class="info-container">
+          <h5 class="info-title">
+            Contatti
+          </h5>      
+          <p><strong>Cellulare:</strong> <%= emp.mobile %> <br />
+          <strong>Email:</strong> <%= emp.email %> <br />
+          </p>
+        </div>
+        <div class="info-container">
+          <h5 class="info-title">
+            Status Lavorativo
+          </h5>      
+          <p><strong>ID Dipendente:</strong> <%= emp.employeeId %> <br />
+          <strong>Posizione</strong> <%= emp.designation %> <br />
+          <strong>Data di Assunzione</strong> <%= emp.joiningDate %> <br />
+          <strong>Dipartimento:</strong> <%= emp.department %> <br />
+          </p>
+        </div>
+      </div>
     </section>
+  </div>
 </div>
-    </div>
 </body>
+
 </html>

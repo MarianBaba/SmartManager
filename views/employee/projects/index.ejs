@@ -1,46 +1,50 @@
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/employeeSidebar") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-            Utente:</strong> <%= employee.firstName %> <%= employee.lastName %> - <%= currentUser.userRole %>
-        </a>
-    </header>
-    <div class="wrapperDepAdmin">
+
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Utente:</strong> <%= employee.firstName %> <%= employee.lastName %> - <%= currentUser.userRole %>
+    </a>
+  </header>
+  <div class="inner-wrapper">
     <section>
-        <div class="headerContainerDepAdmin">
-        <header class="headerDepAdmin">
-            <h1>Lista Progetti</h1>
+      <div class="inner-header-container">
+        <header class="inner-header-container-title">
+          <h1>
+            Lista Progetti
+          </h1>
         </header>
-    </div>
-        <div class="tableContainer">
-            <table class="tableAdmin">
-                <thead>
-                    <tr>
-                        <th>Titolo</th>
-                        <th>Inizio</th>
-                        <th>Termine</th>
-                        <th>Dipartimento Responsabile</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% projects.forEach(function(project){ %>
-                    <% if(project.department === employee.department){ %>
-                    <tr>
-                        <td><a href="/homeemployee/projects/<%=project._id%>"><%= project.name %></a></td>
-                        <td><%= project.start %></td>
-                        <td><%= project.end %></td>
-                        <td><%= project.department %></td>
-                        <td><%= project.state %></td>
-                    </tr>
-                    <% } %>
-                    <% }) %>
-                </tbody>
-            </table>
-        </div>
+      </div>
+      <div class="table-container">
+        <table class="table-info">
+          <thead>
+            <tr>
+              <th>Titolo</th>
+              <th>Inizio</th>
+              <th>Termine</th>
+              <th>Dipartimento Responsabile</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% projects.forEach(function(project){ %>
+          <% if(project.department === employee.department){ %>
+            <tr>
+              <td><a href="/homeemployee/projects/<%=project._id%>"><%= project.name %></a></td>
+              <td><%= project.start %></td>
+              <td><%= project.end %></td>
+              <td><%= project.department %></td>
+              <td><%= project.state %></td>
+            </tr>
+          <% } %>
+          <% }) %>
+          </tbody>
+        </table>
+      </div>
     </section>
-    </div>
+  </div>
 </div>
 </body>
+
 </html>

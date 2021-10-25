@@ -33,7 +33,6 @@ button {
   color: white;
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto Slab", serif;
   font-size: 13px;
   font-weight: 700;
   height: 45px;
@@ -50,19 +49,17 @@ button:active {
   background-color: #11101d;
 }
 h1 {
-  font-family: "Roboto Slab", sans-serif;
   color: #3d4449;
   font-weight: 700;
   font-size: 60px;
 }
-.titleLink {
+.title-link {
     font-size: 30px;
     color: white;
-    font-family: "Roboto Slab", sans-serif;
     padding: 15px;
     text-decoration: none;
 }
-.titleLink:hover {
+.title-link:hover {
     color: white;
     text-decoration: none; 
 }
@@ -70,23 +67,30 @@ nav {
   width: 100%;
   background-color: #11101d;
 }
-.formContainer {
+.form-container {
   width: 40%;
   margin: 25px auto;
 }
-
+.login-button {
+  border-radius: 5px;
+}
+.register-title {
+  text-align: center;
+}
+.register-form-container {
+  width: 60%; 
+  margin: 25px auto;
+}
 @media screen and (max-width: 1680px) {
   h1 {
     font-size: 60px;
   }
 }
-
 @media screen and (max-width: 980px) {
   h1 {
     font-size: 50px;
   }
 }
-
 @media screen and (max-width: 736px) {
   h1 {
     font-size: 40px;

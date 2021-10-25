@@ -4,9 +4,8 @@ body {
     min-height: 100vh;
     width: 100%;
 }
-
 /* STILE DEL MENU LATERALE */
-.nav_list {
+.nav-list {
     margin-left: -32px;
 }
 .sidebar {
@@ -24,7 +23,7 @@ body {
 .sidebar.active {
     width: 290px;
 }
-.sidebar .logo_content .logo {
+.sidebar .logo-content .logo {
     color: #fff;
     display: flex;
     height: 50px;
@@ -34,16 +33,16 @@ body {
     pointer-events: none;
     transition: all 0.3s ease;
 }
-.sidebar.active .logo_content .logo {
+.sidebar.active .logo-content .logo {
     opacity: 1;
     pointer-events: none;
 }
 
-.logo_content .logo i{
+.logo-content .logo i{
     font-size: 28px;
     margin-right: 10px;
 }
-.logo_content .logo .logo_name {
+.logo-content .logo .logo_name {
     font-size: 23px;
     font-weight: 600;
 }
@@ -121,52 +120,31 @@ body {
     text-align: center;
 }
 
-.sidebar .links_name {
+.sidebar .links-name {
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s ease;
 }
-.sidebar.active .links_name {
+.sidebar.active .links-name {
     opacity: 1;
     pointer-events: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* HOMEPAGE HOMEPAGE HOMEPAGE HOMEPAGE */
-
 /* STILE DELLA HOMEPAGE */
-.wrapperHomeAdmin {
+.wrapper {
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.headerHomeAdmin {
+.header-general {
     padding-bottom: 20px;
     border-bottom: solid 5px #11101d;
     font-size: 20px;
 }
-.nameAdmin {
+.header-general-link {
     text-decoration: none;
 }
-.bannerHomeAdmin {
+.container-home-presentation {
     display: flex;
     margin-top: 50px;
     padding-left: 50px;
@@ -176,74 +154,77 @@ body {
     border-bottom: solid 1px rgb(201, 201, 201);
     margin-bottom: 20px;
 }
-.contentHomeAdmin {
+.info-user {
     width: 60%;
 }
-.contentHomeAdmin h1 {
+.info-user h1 {
     font-size: 70px;
 }
-.contentHomeAdmin h2 {
+.info-user h2 {
     font-size: 20px;
 }
-.spanHomeAdmin {
+.span-img-home {
     width: 40%;
 }
-.firstImgHomeAdmin {
+.img-home {
     float:right;
     border-radius: 10px;
     height: 350px; 
     width: 600px;
 }
-.articlesContainerHomeAdmin {
+.dep-article-container {
     display: grid;
     grid-template-columns: auto auto;
     grid-row-gap: 100px;
     padding: 50px;
 }
-.depArticleHomeAdmin {
+.dep-article {
     margin-top: 15px;
     width: 100%;
 }
-.depArticleHomeAdmin h3 {
+.dep-article h3 {
     margin-top: 15px;
     margin-bottom: 15px;
 }
-.depImgHomeAdmin {
+.dep-section-img-home {
     width: 90%;
     height: auto;
+    max-width: 730px;
+    max-height: 400px;
     border-radius: 10px;
 }
-.depSectionHomeAdmin {
+.dep-section {
     padding:50px;
 }
-.depSectionHomeAdmin h2 {
+.dep-section h2 {
     font-size: 50px;
 }
-.depLinkHomeAdmin button {
+.dep-section-link button {
     background-color: #11101d;
     width: 90%;
+    max-width: 730px;
     color: white;
     border-radius: 5px;
     border:none;
     padding: 10px;
     font-weight: 500;
 }
-.depLinkHomeAdmin button:hover {
+.dep-section-link button:hover {
     background-color: #29282c;
 }
 @media only screen and (max-width: 600px) {
-    .wrapperHomeAdmin {
+    .wrapper {
         margin-left: 100px;
         margin-right: 50px;
         margin-top: 25px;
         margin-bottom: 25px;
     }
-    .headerHomeAdmin {
+    .header-general {
         padding-bottom: 15px;
         border-bottom: solid 5px #11101d;
         font-size: 20px;
     }
-    .bannerHomeAdmin {
+    .container-home-presentation {
         display: block;
         margin-top: 0px;
         padding-left: 20px;
@@ -253,160 +234,132 @@ body {
         border-bottom: solid 1px rgb(201, 201, 201);
         margin-bottom: 20px;
     }
-    .contentHomeAdmin h1 {
+    .info-user h1 {
         font-size: 50px;
     }
-    .firstImgHomeAdmin {
+    .img-home {
         border-radius: 10px;
         height: 0px; 
         width: 300px;
     }
-    .articlesContainerHomeAdmin {
+    .dep-article-container {
         display: grid;
         grid-template-columns: auto;
         grid-row-gap: 50px;
         padding: 20px;
     }
-    .depArticleHomeAdmin {
+    .dep-article {
         margin-top: 25px;
         width: 100%;
     }
-    .depSectionHomeAdmin {
+    .dep-section {
         padding:30px;
     }
-    .depSectionHomeAdmin h2 {
+    .dep-section h2 {
         font-size: 35px;
     }
 }
 @media only screen and (max-width: 768px) {
-    .firstImgHomeAdmin {
+    .img-home {
         border-radius: 10px;
         height: 0px; 
         width: 300px;
     }
-    .articlesContainerHomeAdmin {
+    .dep-article-container {
         display: grid;
         grid-template-columns: auto;
         grid-row-gap: 50px;
         padding: 50px;
     }
-    .depSectionHomeAdmin {
+    .dep-section {
         padding:30px;
     }
 }
 @media only screen and (max-width: 992px) {
-    .firstImgHomeAdmin {
+    .img-home {
         border-radius: 10px;
         height: 0px; 
         width: 300px;
     }
-    .articlesContainerHomeAdmin {
+    .dep-article-container {
         display: grid;
         grid-template-columns: auto;
         grid-row-gap: 50px;
         padding: 50px;
     }
-    .depSectionHomeAdmin {
+    .dep-section {
         padding:30px;
     }
 }
 @media only screen and (max-width: 1200px) {
-    .firstImgHomeAdmin {
+    .img-home {
         border-radius: 10px;
         height: 0px; 
         width: 300px;
     }
-    .articlesContainerHomeAdmin {
+    .dep-article-container {
         display: grid;
         grid-template-columns: auto;
         grid-row-gap: 50px;
         padding: 50px;
     }
-    .depSectionHomeAdmin {
+    .dep-section {
         padding:30px;
     }
 }
 @media only screen and (min-width: 1200px) {
-    .firstImgHomeAdmin {
+    .img-home {
         border-radius: 10px;
         height: 0px; 
         width: 300px;
     }
-    .articlesContainerHomeAdmin {
+    .dep-article-container {
         display: grid;
         grid-template-columns: auto auto;
         grid-row-gap: 50px;
         padding: 50px;
     }
-    .depSectionHomeAdmin {
+    .dep-section {
         padding:30px;
     }
 }
 @media only screen and (min-width: 1420px) {
-    .firstImgHomeAdmin {
+    .img-home {
         border-radius: 10px;
         height: 350px; 
         width: 600px;
     }
-    .articlesContainerHomeAdmin {
+    .dep-article-container {
         display: grid;
         grid-template-columns: auto auto;
         grid-row-gap: 50px;
         padding: 50px;
     }
-    .depSectionHomeAdmin {
+    .dep-section {
         padding:30px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* DIPARTIMENTI DIPARTIMENTI DIPARTIMENTI DIPARTIMENTI */
-
-
 /* STILE SEZIONE INDEX DIPARTIMENTI */
-.wrapperDepAdmin {
+.inner-wrapper {
     padding: 50px;
 }
-.headerContainerDepAdmin {
+.inner-header-container {
     display: flex;
     margin-bottom: 50px;
 }
-.headerDepAdmin {
+.inner-header-container-title {
     float: left;
     width: 70%;
 }
-.headerDepAdmin h1 {
+.inner-header-container-title h1 {
     font-size: 50px;
 }
-.newDepAdmin {
+.inner-header-container-button {
     float: right;
     width: 30%;
     text-align: center;
 }
-.newDepAdmin button {
+.inner-header-container-button button {
     background-color: #11101d;
     color: white;
     width: 100%;
@@ -415,7 +368,7 @@ body {
     border-radius: 5px;
     font-weight: 500;
 }
-.newDepAdmin button:hover {
+.inner-header-container-button button:hover {
     background-color: #29282c;
 }
 .posts {
@@ -424,23 +377,24 @@ body {
     grid-row-gap: 100px;
     grid-column-gap: 50px;
 }
-.articleDepAdmin {
+.department-article {
     width: 100%;
+    max-width: 800px;
     padding: 10px;
     margin-top: 20px;
     /* border-bottom: solid 1px black; */
 }
-.articleDepAdmin img {
+.department-article img {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
-.articleDepAdmin h3 {
+.department-article h3 {
         margin-top: 15px;
         margin-bottom: 15px;
         font-size: 35px;
 }
-.articleDepAdmin button {
+.department-article button {
     background-color: #11101d;
     width: 100%;
     color: white;
@@ -449,29 +403,29 @@ body {
     padding: 10px;
     font-weight: 500;
 }
-.articleDepAdmin button:hover {
+.department-article button:hover {
     background-color: #29282c;
 }
 @media only screen and (max-width: 600px) {
-    .wrapperDepAdmin {
+    .inner-wrapper {
         padding: 25px;
     }
-    .headerContainerDepAdmin {
+    .inner-header-container {
         display: inline-block;
         margin-bottom: 50px;
     }
-    .headerDepAdmin {
+    .inner-header-container-title {
         width: 100%;
     }
-    .headerDepAdmin h1 {
+    .inner-header-container-title h1 {
         font-size: 35px;
         margin-bottom: 20px;
     }
-    .newDepAdmin {
+    .inner-header-container-button {
         width: 100%;
         text-align: center;
     }
-    .newDepAdmin button {
+    .inner-header-container-button button {
         background-color: #11101d;
         color: white;
         width: 100%;
@@ -480,7 +434,7 @@ body {
         border-radius: 5px;
         font-weight: 500;
     }
-    .newDepAdmin button:hover {
+    .inner-header-container-button button:hover {
         background-color: #29282c;
     }
     .posts {
@@ -491,25 +445,25 @@ body {
     }
 }
 @media only screen and (max-width: 768px) {
-    .wrapperDepAdmin {
+    .inner-wrapper {
         padding: 25px;
     }
-    .headerContainerDepAdmin {
+    .inner-header-container {
         display: inline-block;
         margin-bottom: 50px;
     }
-    .headerDepAdmin {
+    .inner-header-container-title {
         width: 100%;
     }
-    .headerDepAdmin h1 {
+    .inner-header-container-title h1 {
         font-size: 35px;
         margin-bottom: 20px;
     }
-    .newDepAdmin {
+    .inner-header-container-button {
         width: 100%;
         text-align: center;
     }
-    .newDepAdmin button {
+    .inner-header-container-button button {
         background-color: #11101d;
         color: white;
         width: 100%;
@@ -526,25 +480,25 @@ body {
     }
 }
 @media only screen and (max-width: 992px) {
-    .wrapperDepAdmin {
+    .inner-wrapper {
         padding: 25px;
     }
-    .headerContainerDepAdmin {
+    .inner-header-container {
         display: inline-block;
         margin-bottom: 50px;
     }
-    .headerDepAdmin {
+    .inner-header-container-title {
         width: 100%;
     }
-    .headerDepAdmin h1 {
-        font-size: 45px;
+    .inner-header-container-title h1 {
+        font-size: 35px;
         margin-bottom: 20px;
     }
-    .newDepAdmin {
+    .inner-header-container-button {
         width: 100%;
         text-align: center;
     }
-    .newDepAdmin button {
+    .inner-header-container-button button {
         background-color: #11101d;
         color: white;
         width: 100%;
@@ -560,44 +514,24 @@ body {
         grid-column-gap: 0px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* STILE SEZIONE SHOW DIPARTIMENTI */
-.depShowImgAdmin img {
+.show-page-image img {
     width: 100%;
     height: auto;
+    max-width: 1600px;
     border-radius: 15px;
     margin-top: 35px;
     margin-bottom: 35px;
 }
-.depBtnContainerAdmin {
+.show-page-update-button {
     display: flex;
     width: 100%;
 }
-.depBtnContainerAdmin a {
+.show-page-update-button a {
     width: 100%;
     margin-right: 2px;
 }
-.depBtnContainerAdmin button {
+.show-page-update-button button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -606,70 +540,73 @@ body {
     color: white;
     font-weight: 500;
 }
-.depBtnContainerAdmin button:hover {
+.show-page-update-button button:hover {
     background-color: #29282c;
 }
-.deleteBtn {
+.delete-button {
     border: none;
     border-radius: 5px;
     margin-left: 2px;
 }
-.tableAdmin {
+.table-info {
     background-color: #11101d;
     color: white;
     width: 100%;
     border-radius: 0px;
     padding: 10px;
 }
-.tableAdmin th {
+.table-info th {
     padding: 20px 30px;
     text-align: center;
     border-bottom: solid 1px white;
+    color: white;
 }
-.tableAdmin tr:hover {
+.table-info tr:hover {
     background-color: #29282c;
 }
-.tableAdmin td {
+.table-info td {
     padding: 20px 30px;
     text-align: center;
+    color: white;
 }
-.tableAdmin td a {
+.table-info td a {
+    padding: 20px 30px;
     color: rgb(255, 255, 255);
-    text-decoration: none;
-}
-.tableAdmin td a:hover {
     text-decoration: underline;
 }
-.tableContainer {
+.table-info td a:hover {
+    text-decoration: none;
+}
+.table-container {
     margin-top: 40px;
 }
-.tableTitle {
+.table-title {
     margin-top: 70px;
     font-size: 40px;
     border-bottom: solid 1px #11101d;
 }
 @media only screen and (max-width: 600px) {
-    .tableContainer {
+    .table-container {
         margin-top: 40px;
         overflow-x: auto;
     }
-    .tableAdmin {
+    .table-info {
         border-collapse: collapse;
         background-color: #11101d;
         color: white;
         width: 100%;
         border-radius: 0px;
     }
-    .tableTitle {
+    .table-title {
         font-size: 30px;
     }
 }
 @media only screen and (max-width: 768px) {
-    .tableContainer {
+    .table-container {
         margin-top: 40px;
         overflow-x: auto;
     }
-    .tableAdmin {
+    .table-info {
         border-collapse: collapse;
         background-color: #11101d;
         color: white;
@@ -677,30 +614,12 @@ body {
         border-radius: 0px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* MODIFICA DIPARTIMENTO ADMIN */
-.updDepAdmin {
+.section-header {
     margin-top: 30px;
     margin-bottom: 50px;
 }
-.updDepAdmin h1 {
+.section-header h1 {
     font-size: 60px;
 }
 .form-row label {
@@ -709,7 +628,7 @@ body {
     margin-top: 25px;
     font-weight: 500;
 }
-.submitBtn {
+.submit-button {
     margin-top: 30px;
     width: 100%;
     background-color: #11101d;
@@ -720,54 +639,50 @@ body {
     border-radius: 5px;
     font-weight: 500;
 }
-.submitBtn:hover {
+.submit-button:hover {
     background-color: #29282c;
 }
 
 @media only screen and (max-width: 992px) {
-    .updDepAdmin h1 {
+    .section-header h1 {
         font-size: 40px;
     }
 }
-
-
-
 /* NUOVO DIPENDENTE ADMIN */
-.sectionTitle {
+.section-title {
     font-size: 30px;
     margin-top: 30px;
     border-bottom: solid 1px black;
 }
 /* MOSTRA DIPENDENTE ADMIN */
-.empTitleAdmin {
+.info-title {
     font-size: 35px;
     margin-top: 30px;
     border-bottom: solid 1px black;
 }
-.empInfo strong {
+.info-container strong {
     font-size: 20px;
     margin-right: 5px;
 }
-.empInfo p {
+.info-container p {
     font-size: 25px;
     margin-top: 30px;
 }
-
 /* SHOW PROGETTO */
-.headerProjectAdmin h1 {
+.pro-title h1 {
     font-size: 60px;
 }
-.projBtnContainerAdmin {
+.update-delete-button-container {
     margin-top: 40px;
     margin-bottom: 20px;
     display: flex;
     width: 100%;
 }
-.projBtnContainerAdmin a {
+.update-delete-button-container a {
     width: 100%;
     margin-right: 2px;
 }
-.projBtnContainerAdmin button {
+.update-delete-button-container button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -776,33 +691,32 @@ body {
     color: white;
     font-weight: 500;
 }
-.projBtnContainerAdmin button:hover {
+.update-delete-button-container button:hover {
     background-color: #29282c;
 }
 @media only screen and (max-width: 992px) {
-    .headerProjectAdmin h1 {
+    .pro-title h1 {
         font-size: 40px;
     }
-    .empTitleAdmin {
+    .info-title {
         font-size: 25px;
     }
-    .empInfo strong {
+    .info-container strong {
         font-size: 15px;
     }
-    .empInfo p {
+    .info-container p {
         font-size: 20px;
     }
 }
-
-
-
-
-
-
-
-
-
 /* STILE DELLE PAGINE DEL DIPENDENTE (è inutile ripetere righe di stile, e alcune possono essere utilizzate di nuovo) */
-.empHomeImg img {
-    border-radius: 10px;
+.employee-userphoto {
+    float:right;
+    border-radius: 10px; 
+    max-width: 700px;
+    height: auto;
+}
+@media only screen and (max-width: 1100px) {
+    .employee-userphoto{
+        height: 0px;
+    }
 }

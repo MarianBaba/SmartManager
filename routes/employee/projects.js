@@ -38,13 +38,11 @@ router.get('/homeemployee/projects/:id', middleware.isLoggedInAsEmployee, functi
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             Employee.find({}, function (err, allEmployees) {
                 if (err) {
                     res.status(404);
                     res.redirect('back');
-                    window.alert('errore: ' + err.message);
                 } else {
                     res.render('employee/projects/show.ejs', {
                         project: foundProject,

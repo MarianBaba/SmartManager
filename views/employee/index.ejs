@@ -1,32 +1,34 @@
 <%- include('../partials/headerAdmin.ejs') %> 
 <%- include("../partials/employeeSidebar") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-            Benvenuto <%= employee.firstName %> <%= employee.lastName %> - <%= currentUser.userRole %>
-        </a>
-    </header>
-    <section class="bannerHomeAdmin">
-        <div class="contentHomeAdmin">
-            <header>
-                <h1><%= employee.firstName %> <%= employee.lastName %></h1>
-                <h2><%= employee.designation %></h2>
-            </header>
-            </div>
-            <span class="empHomeImg">
-                <img src="<%= employee.photo %>" alt="" />
-            </span>
-    </section>
-    <div class="wrapperDepAdmin">
-    <div class="empInfo">
-    <p>
+
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Benvenuto <%= employee.firstName %> <%= employee.lastName %> - <%= currentUser.userRole %>
+    </a>
+  </header>
+  <section class="container-home-presentation">
+    <div class="info-user">
+      <header>
+        <h1><%= employee.firstName %> <%= employee.lastName %></h1>
+        <h2><%= employee.designation %></h2>
+      </header>
+    </div>
+    <span> 
+      <img src="<%= employee.photo %>" alt="" class="employee-userphoto" />
+    </span>
+  </section>
+  <div class="inner-wrapper">
+    <div class="info-container">
+      <p>
         <strong>Azienda:</strong> <%= employee.company %> <br />
         <strong>ID Dipendente:</strong> <%= employee.employeeId %> <br />
         <strong>Dipartimento:</strong> <%= employee.department %> <br />
         <strong>Data Assunzione:</strong> <%= employee.joiningDate %>
-    </p>
-</div>
-</div>
+      </p>
+    </div> 
+  </div>
 </div>
 </body>
+
 </html>

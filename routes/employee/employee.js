@@ -14,7 +14,6 @@ router.get('/homeemployee', middleware.isLoggedInAsEmployee, async (req, res) =>
         });
     } catch (err) {
         res.status(404);
-        window.alert('errore: ' + err.message);
         return res.redirect('back');
     }
 });

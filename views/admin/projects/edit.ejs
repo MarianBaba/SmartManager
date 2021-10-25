@@ -1,66 +1,82 @@
-
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/adminSidebar.ejs") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin"> 
-        <a href="#" class="nameAdmin">
-            Utente: <%= currentUser.username %>
-          </a>
-    </header>
-    <div class="wrapperDepAdmin">
+
+<div class="wrapper">
+  <header class="header-general"> 
+    <a href="#" class="header-general-link">
+      Utente: <%= currentUser.username %>
+    </a>
+  </header>
+  <div class="inner-wrapper">
     <section>
-        <header class="updDepAdmin">
-            <h1>Modifica Progetto</h1>
-        </header>
-
-
-        <form action="/homeadmin/projects/<%=project._id%>?_method=PUT" method="POST">
+      <header class="section-header">
+        <h1>
+          Modifica Progetto
+        </h1>
+      </header>
+      <form 
+        action="/homeadmin/projects/<%=project._id%>?_method=PUT" 
+        method="POST"
+      >
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputName4">Nome</label>
-                <input class="form-control" type="text" id="inputName4" name="project[name]" value="<%=project.name%>" />
-            </div>
+          <div class="form-group col-md-12">
+            <label for="input-name-proj">
+              Nome
+            </label>
+            <input class="form-control" type="text" id="input-name-proj" name="project[name]" value="<%=project.name%>" />
+          </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputStart">Data di Inizio</label>
-                <input class="form-control" type="date" id="inputStart" name="project[start]" value="<%=project.start%>" />
-            </div>
+          <div class="form-group col-md-12">
+            <label for="input-start-proj">
+              Data di Inizio
+            </label>
+            <input class="form-control" type="date" id="input-start-proj" name="project[start]" value="<%=project.start%>" />
+          </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputEnd">Data di Fine</label>
-                <input class="form-control" type="date" id="inputEnd" name="project[end]" value="<%=project.end%>" />
-            </div>
+          <div class="form-group col-md-12">
+            <label for="input-end-proj">
+              Data di Fine
+            </label>
+            <input class="form-control" type="date" id="input-end-proj" name="project[end]" value="<%=project.end%>" />
+          </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
-            <label for="inputDept">Dipartimento</label>
-            <select class="form-control" id="inputDept" name="project[department]" value="<%=project.department%>">
-                <option selected>- Scegli -</option>
-                <% departments.forEach(function(dept) { %>
-                <% if(dept.createdBy.username === currentUser.username){ %>
-                <option><%= dept.departmentName %></option>
-                <% } %>
-                <% }) %>
+          <div class="form-group col-md-12">
+            <label for="input-dept-proj">
+              Dipartimento
+            </label>
+            <select class="form-control" id="input-dept-proj" name="project[department]" value="<%=project.department%>">
+              <option selected>- Scegli -</option>
+              <% departments.forEach(function(dept) { %>
+              <% if(dept.createdBy.username === currentUser.username){ %>
+             <option><%= dept.departmentName %></option>
+              <% } %>
+              <% }) %>
             </select>
-            </div>
+          </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
-            <label for="inputState">Status</label>
-            <select class="form-control" id="inputState" name="project[state]">
-                <option selected>- Scegli -</option>
-                <option>Ancora non iniziato</option>
-                <option>In progresso</option>
-                <option>Completato</option>
+          <div class="form-group col-md-12">
+            <label for="input-state-proj">
+              Status
+            </label>
+            <select class="form-control" id="input-state-proj" name="project[state]">
+              <option selected>- Scegli -</option>
+              <option>Ancora non iniziato</option>
+              <option>In progresso</option>
+              <option>Completato</option>
             </select>
+          </div>
         </div>
-        </div>
-        <button type="submit" class="submitBtn">Modifica</button>
-        </form>
+        <button type="submit" class="submit-button">
+          Modifica
+        </button>
+      </form>
     </section>
+  </div>
 </div>
-    </div>
 </body>
+
 </html>

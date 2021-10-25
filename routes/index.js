@@ -45,7 +45,6 @@ router.get('/error', function (req, res) {
         res.render('error.ejs');
     } catch (err) {
         res.status(404);
-        window.alert('errore: ' + err.message);
     }
 })
 
@@ -84,7 +83,6 @@ router.post('/register', function (req, res) {
             User.register(newUser, req.body.password, function (err, user) {
                 if (err) {
                     res.status(404);
-                    window.alert('errore: ' + err.message);
                     return res.redirect('/register');
                 }
                 passport.authenticate('local')(req, res, function () {
@@ -112,7 +110,6 @@ router.post('/login', function (req, res) {
         if (err) {
             res.status(404);
             res.redirect('/');
-            window.alert('errore: ' + err.message);
         } else {
             if (user != null && user.companyName === req.body.companyName) {
                 if (user.userRole === 'Admin') {

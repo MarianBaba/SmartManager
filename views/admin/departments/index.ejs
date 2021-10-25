@@ -2,44 +2,48 @@
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/adminSidebar.ejs") %>
     
-  <div class="wrapperHomeAdmin">
-  <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-          Utente: <%= currentUser.username %>
-        </a>
-      </header>
-
-      <div class="wrapperDepAdmin">
-      <section>
-        <div class="headerContainerDepAdmin">
-        <header class="headerDepAdmin">
-          <h1>Lista Dipartimenti</h1>
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Utente: <%= currentUser.username %>
+    </a>
+  </header>
+  <div class="inner-wrapper">
+    <section>
+      <div class="inner-header-container">
+        <header class="inner-header-container-title">
+          <h1>
+            Lista Dipartimenti
+          </h1>
         </header>
-        <a href="/homeadmin/departments/new" class="newDepAdmin">
-        <button>
-          Aggiungi nuovo dipartimento
-        </button>
-      </a>
+        <a href="/homeadmin/departments/new" class="inner-header-container-button">
+          <button>
+            Aggiungi nuovo dipartimento
+          </button>
+        </a>
       </div>
-
-        <div class="posts">
-          <% departments.forEach(function(dept){ %> 
-          <% if(dept.createdBy.username === currentUser.username){ %>
-          <article class="articleDepAdmin">
-            <a href="/homeadmin/departments/<%= dept._id%>" class="image"
-              ><img src="<%= dept.departmentImage%>" alt=""
-            /></a>
-            <h3><%= dept.departmentName %></h3>
-                <a
-                  href="/homeadmin/departments/<%= dept._id %>"
-                  >
-                  <button>Dettagli</button></a>
+      <div class="posts">
+        <% departments.forEach(function(dept){ %> 
+        <% if(dept.createdBy.username === currentUser.username){ %>
+          <article class="department-article">
+            <a href="/homeadmin/departments/<%= dept._id%>" class="image">
+              <img src="<%= dept.departmentImage%>" alt=""/>
+            </a>
+            <h3>
+              <%= dept.departmentName %>
+            </h3>
+              <a href="/homeadmin/departments/<%= dept._id %>">
+                <button>
+                  Dettagli
+                </button>
+              </a>
           </article>
-          <% } %> 
-          <% }) %>
-        </div>
-      </section>
-    </div>
+        <% } %> 
+        <% }) %>
+      </div>
+    </section>
   </div>
+</div>
 </body>
+
 </html>

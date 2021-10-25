@@ -1,54 +1,53 @@
-
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/adminSidebar.ejs") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-            Utente: <%= currentUser.username %>
-          </a>
-          
-    </header>
-    <div class="wrapperDepAdmin">
-    <section>
-        <div class="headerContainerDepAdmin">
-        <header class="headerDepAdmin">
-            <h1>Lista Progetti</h1>
-        </header>
-        <a href="/homeadmin/projects/new" class="newDepAdmin">
-            <button>
-              Aggiungi nuovo progetto
-            </button>
-          </a>
-    </div>
 
-        <div class="tableContainer">
-            <table class="tableAdmin">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Inizio</th>
-                        <th>Fine</th>
-                        <th>Dipartimento Responsabile</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% projects.forEach(function(project){ %>
-                    <tr>
-                        <td>
-                            <a href="/homeadmin/projects/<%=project._id%>"><%= project.name %></a>
-                        </td>
-                        <td><%= project.start %></td>
-                        <td><%= project.end %></td>
-                        <td><%= project.department %></td>
-                        <td><%= project.state %></td>
-                    </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        </div>
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Utente: <%= currentUser.username %>
+    </a>      
+  </header>
+  <div class="inner-wrapper">
+    <section>
+      <div class="inner-header-container">
+        <header class="inner-header-container-title">
+          <h1>
+            Lista Progetti
+          </h1>
+        </header>
+        <a href="/homeadmin/projects/new" class="inner-header-container-button">
+          <button>
+            Aggiungi nuovo progetto
+          </button>
+        </a>
+      </div>
+      <div class="table-container">
+        <table class="table-info">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Inizio</th>
+              <th>Fine</th>
+              <th>Dipartimento Responsabile</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% projects.forEach(function(project){ %>
+            <tr>
+              <td><a href="/homeadmin/projects/<%=project._id%>"><%= project.name %></a></td>
+              <td><%= project.start %></td>
+              <td><%= project.end %></td>
+              <td><%= project.department %></td>
+              <td><%= project.state %></td>
+            </tr>
+          <% }) %>
+          </tbody>
+        </table>
+      </div>
     </section>
-    </div>
-    </div>
+  </div>
+</div>
 </body>
+
 </html>

@@ -11,7 +11,6 @@ router.get('/homeadmin/employees', middleware.isLoggedInAsAdmin, function (req, 
         if (err) {
             res.status(404);
             res.redirect('/homeadmin');
-            window.alert('errore: ' + err.message);
         } else {
             res.render('admin/employees/index.ejs', { employees: allEmployees, currentUser: req.user });
         }
@@ -24,7 +23,6 @@ router.get('/homeadmin/employees/new', middleware.isLoggedInAsAdmin, function (r
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             res.render('admin/employees/new.ejs', { departments: allDepartment, currentUser: req.user });
         }
@@ -52,20 +50,17 @@ router.post('/homeadmin/employees', middleware.isLoggedInAsAdmin, function (req,
         if (err) {
             res.status(404);
             res.redirect('back');
-            console.log('errore dopo employee create: ' + err.message);
         } else {
             var pwd = newlyCreated.password;
             Employee.findByIdAndUpdate(newlyCreated._id, pwd, function (err, emp) {
                 if (err) {
                     res.status(404);
                     res.redirect('back');
-                    console.log('errore dopo employee find by id and up');
                 } else {
                     Department.findOne({ departmentName: emp.department }, function (err, foundDepartment) {
                         if (err) {
                             res.status(404);
                             res.redirect('back');
-                            console.log('errore dopo department find one');
                         } else {
                             var newUser = new User({
                                 username: newlyCreated.employeeId,
@@ -85,7 +80,6 @@ router.post('/homeadmin/employees', middleware.isLoggedInAsAdmin, function (req,
                             User.register(newUser, pwd, function (err, user) {
                                 if (err) {
                                     res.status(404);
-                                    console.log('errore dopo user-register: ' + err.message);
                                     return res.redirect('back');
                                 }
                                 res.redirect('/homeadmin/employees');
@@ -104,85 +98,10 @@ router.get('/homeadmin/employees/:id', middleware.isLoggedInAsAdmin, function (r
         if (err) {
             res.status(404);
             res.redirect('back');
-            console.log('errore: ' + err.message);
         } else {
             res.render('admin/employees/show', { emp: foundEmployee, currentUser: req.user })
         }
     });
-});
-
-//MODIFICA - MOSTRA IL FORM DI MODIFICA DI UN DIPENDENTE
-router.get('/homeadmin/employees/:id/edit', middleware.isLoggedInAsAdmin, function (req, res) {
-    Employee.findById(req.params.id, function (err, foundEmployee) {
-        if (err || !foundEmployee) {
-            res.status(404);
-            res.redirect('back');
-            console.log('errore: ' + err.message);
-        } else {
-            Department.find({}, function (err, alLDepartments) {
-                if (err) {
-                    res.status(404);
-                    res.redirect('back');
-                    alert('errore: ' + err.message);
-                } else {
-                    res.render('admin/employees/edit', {
-                        emp: foundEmployee,
-                        departments: alLDepartments,
-                        currentUser: req.user
-                    });
-                }
-            });
-        }
-    });
-});
-
-//UPADATE - MODIFICA EFFETTIVAMENTE LE INFORMAZIONI DI UN DIPENDENTE
-router.put('/homeadmin/employees/:id', middleware.isLoggedInAsAdmin, async (req, res) => {
-    try {
-        const updatedEmployee = await Employee.findByIdAndUpdate(req.params.id, req.body.employee);
-
-        let usr = {
-            username: req.body.employee.employeeId
-        };
-
-        const updateUser = await User.findOneAndUpdate({ 'employee.id': updatedEmployee.id }, usr);
-
-        const foundUser = await User.findOne({ username: req.body.employee.employeeId });
-        const foundDepartment = await Department.findOne({ departmentName: req.body.employee.department });
-
-        foundUser.department.id = foundDepartment.id;
-        await foundUser.save();
-
-        await User.findOneAndRemove({ 'employee.id': updatedEmployee.id });
-
-        var pwd = req.body.employee.password;
-        var pwdUpdate = { password: pwd };
-
-        var newUser = new User({
-            username: req.body.employee.employeeId,
-            userEmail: req.body.employee.email,
-            userRole: req.body.employee.designation,
-            companyName: req.body.employee.company,
-            company: {
-                id: req.user.company.id
-            },
-            employee: {
-                id: updatedEmployee.id
-            },
-            department: {
-                id: foundDepartment.id
-            }
-        });
-
-        const user = await User.register(newUser, pwd);
-
-        res.redirect('/homeadmin/employees/' + req.params.id);
-
-    } catch (err) {
-        res.status(404);
-        res.redirect('back');
-        console.log('errore: ' + err.message);
-    }
 });
 
 //ELIMINA - ELIMINA UN PARTICOLARE DIPENDENTE
@@ -191,12 +110,10 @@ router.delete('/homeadmin/employees/:id', middleware.isLoggedInAsAdmin, function
         if (err) {
             res.status(404);
             res.redirect('back');
-            console.log('errore: ' + err.message);
         } else {
             User.findOneAndRemove({ username: deletedEmployee.employeeId }, function (err, removed) {
                 if (err) {
                     res.status(404);
-                    console.log('errore: ' + err.message);
                 } else {
                     res.redirect('/homeadmin/employees');
                 }

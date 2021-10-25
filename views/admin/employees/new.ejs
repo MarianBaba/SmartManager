@@ -1,116 +1,142 @@
-
 <%- include('../../partials/headerAdmin.ejs') %> 
 <%- include("../../partials/adminSidebar.ejs") %>
-<div class="wrapperHomeAdmin">
-    <header class="headerHomeAdmin">
-        <a href="#" class="nameAdmin">
-            Utente: <%= currentUser.username %>
-          </a>
-          
+
+<div class="wrapper">
+  <header class="header-general">
+    <a href="#" class="header-general-link">
+      Utente: <%= currentUser.username %>
+    </a>      
+  </header>
+  <div class="inner-wrapper">
+    <header>
+      <h1>
+        Creazione Dipendente
+      </h1>
     </header>
-
-    <div class="wrapperDepAdmin">
-
-        <header>
-            <h1>Creazione Dipendente</h1>
-        </header>
-
-    <form action="/homeadmin/employees" method="POST">
+    <form 
+      action="/homeadmin/employees" 
+      method="POST"
+    >
+      <div>
+        <h5 class="section-title">
+          Informazioni Personali
+        </h5>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="input-first-name">
+                Nome
+              </label>
+              <input class="form-control" type="text" id="input-first-name" name="employee[firstName]" required />
+            </div>
+            <div class="form-group col-md-12">
+              <label for="input-last-name">
+                Cognome
+              </label>
+              <input class="form-control" type="text" id="input-last-name" name="employee[lastName]" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="input-dob">
+                Data di Nascita
+              </label>
+              <input class="form-control" type="date" id="input-dob" name="employee[dateOfBirth]" required />
+            </div>
+            <div class="form-group col-md-12">
+              <label for="input-gender">
+                Sesso
+              </label>
+              <select class="form-control" id="input-gender" name="employee[gender]" required>
+                <option selected>-- Scegli --</option>
+                <option>Uomo</option>
+                <option>Donna</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="input-pass">
+                Password
+              </label>
+              <input class="form-control" type="text" id="input-pass" name="employee[password]" required />
+            </div>
+            <div class="form-group col-md-12">
+              <label for="input-photo">Fotografia(URL)</label>
+              <input class="form-control" type="text" id="input-photo" name="employee[photo]" required />
+            </div>
+          </div>
+        </div>
         <div>
-            <h5 class="sectionTitle">Informazioni Personali</h5>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="inputFname">Nome</label>
-                    <input class="form-control" type="text" id="inputFname" name="employee[firstName]" required />
-                </div>
-            
+          <h5 class="section-title">
+            Contatti
+          </h5>
+          <div class="form-row">
             <div class="form-group col-md-12">
-                <label for="inputLname">Cognome</label>
-                <input class="form-control" type="text" id="inputLname" name="employee[lastName]" required />
+              <label for="input-email">
+                Email
+              </label>
+              <input class="form-control" type="email" id="input-email" name="employee[email]" required />
             </div>
+            <div class="form-group col-md-12">
+              <label for="input-mobile">
+                Cellulare
+              </label>
+              <input class="form-control" type="text" id="input-mobile" name="employee[mobile]" required />
+            </div>
+          </div>
         </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                <label for="inputDob">Data di Nascita</label>
-                <input class="form-control" type="date" id="inputDob" name="employee[dateOfBirth]" required />
-            </div>
-            
-            <div class="form-group col-md-12">
-                <label for="inputGender">Sesso</label>
-                <select class="form-control" id="inputGender" name="employee[gender]" required>
-                    <option selected>-- Scegli --</option>
-                    <option>Uomo</option>
-                    <option>Donna</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputPass">Password</label>
-                <input class="form-control" type="text" id="inputPass" name="employee[password]" required />
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputPhoto">Fotografia(URL)</label>
-                <input class="form-control" type="text" id="inputPhoto" name="employee[photo]" required />
-            </div>
-        </div>
-    </div>
-
         <div>
-            <h5 class="sectionTitle">Contatti</h5>
-
-            <div class="form-row">
+          <h5 class="section-title">
+            Status Lavorativo
+          </h5>
+          <div class="form-row">
             <div class="form-group col-md-12">
-                <label for="inputEmail">Email</label>
-                <input class="form-control" type="email" id="inputEmail" name="employee[email]" required />
+              <label for="input-employee-id">
+                ID Dipendente
+              </label>
+              <input class="form-control" type="text" id="input-employee-id" name="employee[employeeId]" required />
             </div>
             <div class="form-group col-md-12">
-                <label for="inputMobile">Cellulare</label>
-                <input class="form-control" type="text" id="inputMobile" name="employee[mobile]" required />
-            </div>
-        </div>
-        </div>
-
-        <div>
-            <h5 class="sectionTitle">Status Lavorativo</h5>
-            <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputEmployeeId">ID Dipendente</label>
-                <input class="form-control" type="text" id="inputEmployeeId" name="employee[employeeId]" required />
+              <label for="input-designation">
+                Posizione
+              </label>
+              <input class="form-control" type="text" id="input-designation" name="employee[designation]" required />
             </div>
             <div class="form-group col-md-12">
-                <label for="inputDesignation">Posizione</label>
-                <input class="form-control" type="text" id="inputDesignation" name="employee[designation]" required />
+              <label for="input-joining">
+                Data di Assunzione
+              </label>
+              <input class="form-control" type="date" id="input-joining" name="employee[joiningDate]" required />
             </div>
+          </div>
+          <div class="form-row">
             <div class="form-group col-md-12">
-                <label for="inputJoining">Data di Assunzione</label>
-                <input class="form-control" type="date" id="inputJoining" name="employee[joiningDate]" required />
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputDept">Dipartimento</label>
-                <select class="form-control" id="inputDept" name="employee[department]">
-                    <option selected>-- scegli --</option>
-                    <% departments.forEach(function(dept){ %> 
-                    <% if(dept.createdBy.username === currentUser.username){ %>
-                    <option><%= dept.departmentName %></option>
-                    <% } %>    
+              <label for="input-dept">
+                Dipartimento
+              </label>
+              <select class="form-control" id="input-dept" name="employee[department]">
+                <option selected>-- scegli --</option>
+                <% departments.forEach(function(dept){ %> 
+                <% if(dept.createdBy.username === currentUser.username){ %>
+                <option><%= dept.departmentName %></option>
+                <% } %>    
                 <% }) %>
-                </select>
+              </select>
             </div>
             <div class="form-group col-md-12">
-                <label for="inputCompany">Azienda</label>
-                <input class="form-control" type="text" id="inputCompany" name="employee[company]" value="<%= currentUser.companyName %>" required />
+              <label for="input-company">
+                Azienda
+              </label>
+              <input class="form-control" type="text" id="input-company" name="employee[company]" value="<%= currentUser.companyName %>" required />
             </div>
+          </div>
         </div>
-    </div>
-
-        <button type="submit" class="submitBtn">Crea</button>
+        <button type="submit" class="submit-button">
+          Crea
+        </button>
     </form>
-</div>
+  </div>
 </div>
 </body>
+
 </html>

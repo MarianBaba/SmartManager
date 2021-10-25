@@ -41,11 +41,9 @@ router.post('/homeadmin/departments', middleware.isLoggedInAsAdmin, function (re
         if (err) {
             res.status(404);
             res.redirect('back');
-            console.log('errore');
         } else {
             res.status(200);
             res.redirect('/homeadmin');
-            console.log('Dipartimento creato con successo');
         }
     });
 });
@@ -56,19 +54,16 @@ router.get('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, function 
         if (err || !foundDepartment) {
             res.status(404);
             res.redirect('back');
-            console.log('errore: ' + err.message);
         } else {
             Employee.find({}, function (err, allEmployees) {
                 if (err) {
                     res.status(404);
                     res.redirect('back');
-                    console.log('errore: ' + err.message);
                 } else {
                     Project.find({}, function (err, allProjects) {
                         if (err) {
                             res.status(404);
                             res.redirect('back');
-                            console.log('errore: ' + err.message);
                         } else {
                             res.render('admin/departments/show.ejs', {
                                 department: foundDepartment,
@@ -90,7 +85,6 @@ router.get('/homeadmin/departments/:id/edit', middleware.isLoggedInAsAdmin, func
         if (err || !foundDepartment) {
             res.status(404);
             res.redirect('back');
-            console.log('errore: Dipartimento non trovato');
         } else {
             res.render('admin/departments/edit.ejs', { department: foundDepartment, currentUser: req.user })
         }
@@ -144,7 +138,6 @@ router.put('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, async (re
         return res.redirect('/homeadmin/departments/' + req.params.id);
     } catch (err) {
         res.status(404);
-        console.log('errore, impossibile aggiornare informazioni dipartimento');
         return res.redirect('back');
     }
 });
@@ -154,29 +147,14 @@ router.delete('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, functi
     Department.findById(req.params.id, function (err, department) {
         if (err) {
             res.status(404);
-            console.log('errore: ' + err.message);
             res.redirect('back');
         } else {
             console.log(req.params.id);
             department.deleteOne();
             res.status(200);
-            console.log('Dipartimento eliminato con successo');
             res.redirect('/homeadmin');
         }
     });
 });
-
-/* router.delete('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, function(req, res) {
-    Department.findById(req.params.id, function(err, department) {
-        if (err) {
-            req.flash('error', err.message);
-            res.redirect('back');
-        } else {
-            department.remove();
-            req.flash('success', 'Dipartimento eliminato con successo');
-            res.redirect('/homeadmin');
-        }
-    });
-}); */
 
 module.exports = router;

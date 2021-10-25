@@ -11,7 +11,6 @@ router.get('/homeadmin/projects', middleware.isLoggedInAsAdmin, function (req, r
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             res.render('admin/projects/index.ejs', { projects: allProjects, currentUser: req.user });
         }
@@ -36,13 +35,11 @@ router.post('/homeadmin/projects', middleware.isLoggedInAsAdmin, function (req, 
         if (err) {
             res.status(404);
             res.redirect('back');
-            console.log('errore: ' + err.message);
         } else {
             Project.create(req.body.project, function (err, project) {
                 if (err) {
                     res.status(404);
                     res.redirect('back');
-                    console.log('errore: ' + err.message);
                 } else {
                     project.save();
                     foundDepartment.projects.push(project);
@@ -60,13 +57,11 @@ router.get('/homeadmin/projects/:id', middleware.isLoggedInAsAdmin, function (re
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             Employee.find({}, function (err, allEmployees) {
                 if (err) {
                     res.status(404);
                     res.redirect('back');
-                    window.alert('errore: ' + err.message);
                 } else {
                     allEmployees.forEach(function (emp) {
                         foundProject.employees.push(emp);
@@ -88,13 +83,11 @@ router.get('/homeadmin/projects/:id/edit', middleware.isLoggedInAsAdmin, functio
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             Department.find({}, function (err, allDepartments) {
                 if (err) {
                     res.status(404);
                     res.redirect('back');
-                    window.alert('errore: ' + err.message);
                 } else {
                     res.render('admin/projects/edit.ejs', {
                         departments: allDepartments,
@@ -113,7 +106,6 @@ router.put('/homeadmin/projects/:id', middleware.isLoggedInAsAdmin, function (re
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             res.redirect('/homeadmin/projects/' + req.params.id);
         }
@@ -126,7 +118,6 @@ router.delete('/homeadmin/projects/:id', middleware.isLoggedInAsAdmin, function 
         if (err) {
             res.status(404);
             res.redirect('back');
-            window.alert('errore: ' + err.message);
         } else {
             res.redirect('/homeadmin/projects');
         }

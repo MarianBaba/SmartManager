@@ -1,54 +1,66 @@
 <%- include('../partials/headerLogReg.ejs') %>
+
 <header>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="titleLink" href="/">
-                Smart Manager
-            </a>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="title-link" href="/">
+        Smart Manager
+      </a>
+    </div>
+  </nav>
 </header>
 <div class="container">
-    <h1 style="text-align: center;">Registrazione</h1>
-    <div style="width: 60%; margin: 25px auto;">
-        <form action="/register" method="post">
-            <h4>Informazioni Personali:</h4>
-            <div class="form-group">
-                <input class="form-control" type="text" name="username" placeholder="Nome Completo" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="email" name="userEmail" placeholder="Indirizzo Email" required>
-            </div>
-            <div class="form-group">
-                <label for="role">Ruolo:</label>
-                <select class="form-control" name="userRole" id="role" required>
-                    <option>Admin</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="password" name="password2" placeholder="Conferma Password" required>
-            </div>
-
-            <h4>Informazioni Aziendali:</h4>
-            <p>Si prega di compilare tutti i campi richiesti per l'azienda che si vuole registrare</p>
-            <div class="form-group">
-                <input class="form-control" type="text" name="companyName" placeholder="Nome" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="companyEmail" placeholder="Indirizzo Email" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="companyAddress" placeholder="Indirizzo" required>
-            </div>
-
-            <div class="form-group">
-                <button class="button primary fit" style="border-radius: 5px;">Registrati!</button>
-            </div>
+  <h1 class="register-title">
+    Registrazione
+  </h1>
+  <div class="register-form-container">
+    <form 
+      action="/register" 
+      method="post"
+    >
+      <h4>
+        Informazioni Personali:
+      </h4>
+      <div class="form-group">
+        <input class="form-control" type="text" name="username" placeholder="Nome Completo" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="email" name="userEmail" placeholder="Indirizzo Email" required>
+      </div>
+      <div class="form-group">
+        <label for="role">
+          Ruolo:
+        </label>
+        <select class="form-control" name="userRole" id="role" required>
+          <option>Admin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password2" placeholder="Conferma Password" required>
+      </div>
+        <h4>
+          Informazioni Aziendali:
+        </h4>
+        <p>
+          Si prega di compilare tutti i campi richiesti per l'azienda che si vuole registrare
+        </p>
+          <div class="form-group">
+            <input class="form-control" type="text" name="companyName" placeholder="Nome" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="companyEmail" placeholder="Indirizzo Email" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="companyAddress" placeholder="Indirizzo" required>
+          </div>
+          <div class="form-group">
+            <button class="button primary fit login-button">Registrati!</button>
+          </div>
         </form>
+      </div>
     </div>
-    </div>
-</body>
+  </body>
 </html>

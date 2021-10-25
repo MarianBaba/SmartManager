@@ -24,17 +24,4 @@ var departmentSchema = new mongoose.Schema({
     }
 });
 
-
-departmentSchema.pre('remove', async function (next) { //fa in modo di eliminare tutti i progetti relativi a un dipartimento
-    try {
-        await Project.remove({
-            _id: {
-                $in: this.projects
-            }
-        });
-    } catch (err) {
-        next(err);
-    }
-});
-
 module.exports = mongoose.model('Department', departmentSchema);

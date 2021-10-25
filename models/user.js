@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var passportLocalMongoose = require('passport-local-mongoose');
-// var Employee = require('./employee');
 
 var userSchema = new mongoose.Schema({
     username: String,

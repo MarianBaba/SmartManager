@@ -22,7 +22,6 @@ router.get('/homeemployee/departments/:id', middleware.isLoggedInAsEmployee, asy
         });
     } catch (err) {
         res.status(404);
-        console.log('errore: ' + err.message);
         return res.redirect('back');
     }
 });

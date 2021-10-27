@@ -1,4 +1,4 @@
-<%- include('../../partials/headerAdmin.ejs') %> 
+<%- include('../../partials/userHeader.ejs') %> 
 <%- include("../../partials/employeeSidebar") %>
 
 <div class="wrapper">
@@ -36,10 +36,10 @@
               <th>Nome Completo</th>
               <th>Posizione</th>
             </tr>
-          </thead>
+          </thead> 
           <tbody>
           <% employees.forEach(function(emp){ %>
-          <% if(emp.company === currentUser.companyName && emp.deoartment === project.department){ %>
+          <% if(emp.company === currentUser.companyName && emp.department === project.department){ %>
             <tr>
               <td><%= emp.employeeId %></td>
               <td>

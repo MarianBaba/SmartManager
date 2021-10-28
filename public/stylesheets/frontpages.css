@@ -1,11 +1,11 @@
 /* STILE HOMEPAGE */
-.nav-link:hover {
-  border-radius: 5px;
-  background-color: #202e41;
-}
 .nav-link {
   margin-right: 15px;
   margin-left: 15px;
+}
+.nav-link:hover { 
+  border-radius: 5px;
+  background-color: #202e41;
 }
 .frontpage-body {
   height: 100%;

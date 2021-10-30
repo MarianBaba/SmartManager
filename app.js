@@ -2,18 +2,15 @@ const http = require('http');
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-
 const app = express();
 const server = http.createServer(app);
 
-//da qui in giù, serve tutto per la connessione a mongoDB CONNESSIONE AD DATABASE
 const dotenv = require('dotenv').config();
 
-app.set('view engine', 'ejs'); //senza questo è necessario scrivere l'estensione dei file quando si fa res.render, io lo faccio per scrupolo
+app.set('view engine', 'ejs'); //senza questo è necessario scrivere l'estensione dei file quando si fa res.render
 app.use(express.static(__dirname + '/public')); //per caricare correttamente i file css
 app.use(methodOverride('_method')); //Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 
@@ -22,7 +19,6 @@ const DBURI = process.env.ATLAS_URI;
 mongoose.connect(DBURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    //useFindAndModify: false,
 });
 
 const conn = mongoose.connection;
@@ -48,7 +44,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//configurazione delle route, prima importate, poi assegnate a una costante e infine utilizzate dall'app, ovvero dal server
+//configurazione delle route
 const indexRoutes = require('./routes/index');
 const adAdminRoutes = require('./routes/admin/admin');
 const adDepartmentsRoutes = require('./routes/admin/departments');

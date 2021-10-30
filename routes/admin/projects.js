@@ -38,7 +38,7 @@ router.post('/homeadmin/projects', middleware.isLoggedInAsAdmin, function (req, 
         } else {
             Project.create(req.body.project, function (err, project) {
                 if (err) {
-                    res.status(404);
+                    res.status(500);
                     res.redirect('back');
                 } else {
                     project.save();
@@ -116,7 +116,7 @@ router.put('/homeadmin/projects/:id', middleware.isLoggedInAsAdmin, function (re
 router.delete('/homeadmin/projects/:id', middleware.isLoggedInAsAdmin, function (req, res) {
     Project.findByIdAndRemove(req.params.id, function (err, deletedProject) {
         if (err) {
-            res.status(404);
+            res.status(500);
             res.redirect('back');
         } else {
             res.redirect('/homeadmin/projects');

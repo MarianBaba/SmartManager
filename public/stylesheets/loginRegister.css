@@ -3,12 +3,12 @@ input[type="password"],
 input[type="email"] {
   appearance: none;
   background: #ffffff;
-  border-radius: 0.375em;
+  border-radius: 6px;
   border: solid 1px rgba(210, 215, 217, 0.75);
   color: inherit;
   display: block;
   outline: 0;
-  padding: 0 1em;
+  padding: 0 16px;
   text-decoration: none;
   width: 100%;
 }
@@ -21,7 +21,7 @@ input[type="email"]:focus {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-  height: 2.75em;
+  height: 45px;
   font-size: 17px;
 }
 button {

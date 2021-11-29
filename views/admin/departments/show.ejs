@@ -12,7 +12,7 @@
     <section>
       <header class="inner-header-container-title">
         <h1>
-          Dipartimento <%= department.departmentName %>
+          <%= department.departmentName %>
         </h1>
       </header>
       <span class="show-page-image">
@@ -76,7 +76,7 @@
               <% projects.forEach(function(project){ %> 
               <% if(project.company === currentUser.companyName && project.department === department.departmentName){ %>
                 <tr>
-                  <td><a href="/homeadmin/projects/<%project._id%>"><%= project.name %></a></td>
+                  <td><a href="/homeadmin/projects/<%=project._id%>"><%= project.name %></a></td>
                   <td><%= project.start %></td>
                   <td><%= project.end %></td>
                   <td><%= project.department %></td>

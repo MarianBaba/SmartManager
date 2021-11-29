@@ -4,11 +4,11 @@ const User = require('../models/user');
 const Company = require('../models/company');
 const passport = require('passport');
 
-router.get('/', function (req, res) { //route della landing page
-    try { //prova a fare il render della pagina hompage contenuta nel folder views/frontpage
+router.get('/', function (req, res) {
+    try {
         res.render('frontpage/homepage.ejs');
-    } catch (err) { //se la pagina non viene trovata o c'è un errore nel server, si viene inviati a una pagina di errore
-        res.status(404); //viene inviato uno status 404 al browser
+    } catch (err) {
+        res.status(404);
         res.redirect('/error');
     }
 });
@@ -113,7 +113,7 @@ router.post('/login', function (req, res) {
         } else {
             if (user != null && user.companyName === req.body.companyName) {
                 if (user.userRole === 'Admin') {
-                    passport.authenticate('local')(req, res, function () {
+                    passport.authenticate('local')(req, res, function () { //metodo di autenticazione fornito da Passport, si specifica la strategia e poi si definisce cosa fare se l'autenticazione va a buon fine
                         res.status(200);
                         res.redirect('/homeadmin');
                     });
@@ -132,7 +132,7 @@ router.post('/login', function (req, res) {
 
 //LOGOUT
 router.get('/logout', function (req, res) {
-    req.logout();
+    req.logout(); //metodo fornito da Passport
     res.redirect('/');
 })
 

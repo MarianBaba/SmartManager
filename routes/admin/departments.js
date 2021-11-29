@@ -50,7 +50,7 @@ router.post('/homeadmin/departments', middleware.isLoggedInAsAdmin, function (re
 
 //MOSTRA - MOSTRA INFORMAZIONI SU UNO SPECIFICO DIPARTIMENTO
 router.get('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, function (req, res) {
-    Department.findById(req.params.id).populate('projects').exec(function (err, foundDepartment) {
+    Department.findById(req.params.id).populate('projects').exec(function (err, foundDepartment) { //populate espande il campo projects del documento, in maniera tale da accedere ad informazioni più specifiche, poi si esegue una funzione
         if (err || !foundDepartment) {
             res.status(404);
             res.redirect('back');
@@ -134,7 +134,6 @@ router.put('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, async (re
             }
         });
         res.status(200);
-        console.log('Dipartimento modificato con successo');
         return res.redirect('/homeadmin/departments/' + req.params.id);
     } catch (err) {
         res.status(404);
@@ -149,7 +148,6 @@ router.delete('/homeadmin/departments/:id', middleware.isLoggedInAsAdmin, functi
             res.status(404);
             res.redirect('back');
         } else {
-            console.log(req.params.id);
             department.deleteOne();
             res.status(200);
             res.redirect('/homeadmin');

@@ -12,7 +12,7 @@ const dotenv = require('dotenv').config();
 
 app.set('view engine', 'ejs'); //senza questo è necessario scrivere l'estensione dei file quando si fa res.render
 app.use(express.static(__dirname + '/public')); //per caricare correttamente i file css
-app.use(methodOverride('_method')); //Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+app.use(methodOverride('_method')); //permette di fare override del metodo usato in una richiesta al server
 
 const DBURI = process.env.ATLAS_URI;
 
